@@ -27,7 +27,7 @@ app.get('', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About Me',
+        title: 'About Weather App',
         name: 'Dipanjan Sengupta'
     });
 })
@@ -36,7 +36,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
         name: 'Dipanjan Sengupta',
-        message: 'how can i help you today?'
+        message: 'How can i help you today?'
     });
 })
 
@@ -55,16 +55,16 @@ app.get('/weather', (req, res) => {
             if (error) {
                 return res.send({ error })
             }
-            const forecast = (response.daily.summary) + ' It is ' + response.currently.temperature + ' degrees now with ' + formatter((response.currently.precipProbability * 100), 2) + '% chance of rain.';
-            res.send({ location, forecast })                 
-         })
+            const forecast = (response.daily.summary) + ' It is ' + response.currently.temperature + '°C now with ' + formatter((response.currently.precipProbability * 100), 2) + '% chance of rain. The highest and lowest temperatures during the day are expected to be ' + response.daily.data[0].temperatureHigh + '°C and ' + response.daily.data[0].temperatureLow + '°C respectively with ' + ((response.daily.data[0].precipProbability) * 100) + '% chance of rain.';
+            res.send({ location, forecast })
+        })
     })
 })
 
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
-        message: 'help article not found',
+        message: 'Help article not found.',
         name: 'Dipanjan Sengupta'
     });
 })
@@ -72,7 +72,7 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
-        message: 'page not found',
+        message: 'Page not found.',
         name: 'Dipanjan Sengupta'
     });
 })
