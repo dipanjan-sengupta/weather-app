@@ -1,5 +1,5 @@
 const request = require('request');
-const proxy = 'http://proxy.cognizant.com:6050';
+const proxy = '';
 
 const token = 'pk.eyJ1IjoiZGlwYW5qYW4iLCJhIjoiY2l5azZpdmx1MDAxcDJxcGE2a2NxNXB1YiJ9.48JsofvzGJR7BDqlrSy7Hw';
 const baseUrl = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
