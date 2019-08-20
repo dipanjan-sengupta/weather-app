@@ -6,6 +6,7 @@ const forecast = require('./utils/forecast');
 const formatter = require('./utils/formatter');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 const public = path.join(__dirname, '../public');
 const views = path.join(__dirname, '../templates/views')
@@ -76,6 +77,6 @@ app.get('*', (req, res) => {
     });
 })
 
-app.listen(3000, () => {
-    console.log('server has started...')
+app.listen(port, () => {
+    console.log('server started on port ' + port);
 })
